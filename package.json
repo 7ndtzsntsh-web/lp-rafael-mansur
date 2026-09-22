@@ -1,0 +1,16 @@
+{
+  "name": "lp-rafael-mansur",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Landing page da Rafael Mansur Jiu-Jitsu School (Florianopolis/SC)",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i build/input.css -o css/style.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i build/input.css -o css/style.css --watch",
+    "sri": "node scripts/sri.mjs",
+    "security:scan": "node scripts/observatory-local.mjs 4321",
+    "dev": "node scripts/dev-server.mjs 4321"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
