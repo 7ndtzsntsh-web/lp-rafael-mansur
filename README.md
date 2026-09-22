@@ -15,8 +15,11 @@ O CSS é **compilado** (não use CDN). Depois de mexer em `index.html` ou em `bu
 gere o CSS de novo:
 
 ```bash
-npm run build:css
+npm run build
 ```
+
+Esse comando faz tudo: compila o CSS, coloca o código de versão nos nomes dos
+arquivos e roda as verificações.
 
 Para ficar recompilando enquanto edita:
 
@@ -79,3 +82,21 @@ código inline e a quebra de linha dos arquivos.
 > bytes exatos do arquivo. Se o arquivo estiver com CRLF (Windows) na sua máquina e
 > o servidor entregar com LF, o navegador **bloqueia o script** e a página fica em
 > branco. O `.gitattributes` força LF em tudo; o `npm run check` confirma.
+
+## Por que os arquivos têm código no nome
+
+Os arquivos de estilo e script saem assim: `css/style.6d86f1d0.css`.
+
+Esse código vem do conteúdo do arquivo. Quando o conteúdo muda, o nome muda, e o
+navegador de quem já visitou é obrigado a baixar a versão nova.
+
+**Isso resolveu um problema real:** antes os arquivos mantinham o mesmo nome, e quem
+já tinha entrado no site continuava vendo a versão antiga por dias — o espaçamento da
+legenda estava certo no servidor e errado na tela do visitante.
+
+Nunca renomeie esses arquivos à mão nem edite `css/style.*.css` direto. Mexa em
+`build/input.css` e rode:
+
+```bash
+npm run build
+```

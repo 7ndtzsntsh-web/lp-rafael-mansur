@@ -5,7 +5,7 @@
 // com LF. Os bytes diferiam, o navegador bloqueou o script e a página ficou EM BRANCO.
 // O .gitattributes força LF; este script confere que tudo continua batendo.
 import { createHash } from 'node:crypto';
-import { readFileSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, statSync, readdirSync } from 'node:fs';
 
 const html = readFileSync('index.html', 'utf8');
 const vercel = readFileSync('vercel.json', 'utf8');
@@ -27,9 +27,20 @@ const scripts = [...html.matchAll(/<script src="[^"]+"/g)].length;
 const comIntegridade = [...html.matchAll(/<script src="[^"]+"[^>]*integrity=/g)].length;
 scripts === comIntegridade ? ok('todos os scripts têm integridade') : erro('script sem integridade');
 
-// 3) Quebra de linha CRLF nos arquivos servidos (a causa do erro original)
-for (const f of ['js/app.js', 'js/aos.js', 'index.html', 'css/style.css']) {
+// 3) Quebra de linha CRLF nos arquivos servidos (a causa do erro original).
+//    Os nomes têm código de versão, então pego do próprio index.html.
+const servidos = ['index.html', ...new Set([...html.matchAll(/(?:src|href)="((?:css|js)\/[^"]+)"/g)].map((m) => m[1]))];
+for (const f of servidos) {
+  if (!existsSync(f)) { erro(`arquivo não existe: ${f}`); continue; }
   readFileSync(f).includes(0x0d) ? erro(`${f} tem CRLF`, 'confira o .gitattributes') : ok(`${f} está em LF`);
+}
+
+// 3b) Nada de arquivo de estilo/script sem código de versão no nome
+for (const pasta of ['css', 'js']) {
+  const soltos = readdirSync(pasta).filter((f) => !/\.[0-9a-f]{8}\.(css|js)$/.test(f));
+  soltos.length
+    ? erro(`${pasta}/ tem arquivo sem versão: ${soltos.join(', ')}`, 'rode "npm run versionar"')
+    : ok(`${pasta}/ com versão no nome`);
 }
 
 // 4) Hash do bloco de dados estruturados bate com o da CSP

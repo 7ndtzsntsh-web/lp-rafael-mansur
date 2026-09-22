@@ -39,7 +39,7 @@
       ]
     },
     {
-      "source": "/fonts/(.*)",
+      "source": "/(css|js|fonts)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "source": "/(css|js|img)/(.*)",
+      "source": "/img/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
