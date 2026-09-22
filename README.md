@@ -65,3 +65,17 @@ Antes de publicar, rode o scanner oficial contra o servidor local (precisa do `n
 ```bash
 npm run security:scan
 ```
+
+## Antes de publicar (obrigatório)
+
+```bash
+npm run check
+```
+
+Confere a integridade dos scripts, o hash dos dados estruturados, a ausência de
+código inline e a quebra de linha dos arquivos.
+
+> **Por que a quebra de linha importa:** o hash de integridade é calculado sobre os
+> bytes exatos do arquivo. Se o arquivo estiver com CRLF (Windows) na sua máquina e
+> o servidor entregar com LF, o navegador **bloqueia o script** e a página fica em
+> branco. O `.gitattributes` força LF em tudo; o `npm run check` confirma.

@@ -8,7 +8,8 @@
     "watch:css": "tailwindcss -c tailwind.config.js -i build/input.css -o css/style.css --watch",
     "sri": "node scripts/sri.mjs",
     "security:scan": "node scripts/observatory-local.mjs 4321",
-    "dev": "node scripts/dev-server.mjs 4321"
+    "dev": "node scripts/dev-server.mjs 4321",
+    "check": "node scripts/check.mjs"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.19"
