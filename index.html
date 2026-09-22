@@ -45,12 +45,11 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   
-  <!-- Custom CSS for specific behaviors and glassmorphism -->
+  <!-- Custom CSS -->
   <style>
     body { font-family: 'Outfit', sans-serif; background-color: #09090b; color: #f4f4f5; overflow-x: hidden; }
     h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
     
-    /* High-End Glassmorphism Utilities */
     .glass-dark {
       background: rgba(24, 24, 27, 0.4);
       backdrop-filter: blur(16px);
@@ -71,31 +70,27 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Invert logo for dark theme */
+    /* Transform black on white to pure white */
     .logo-dark-mode {
-      filter: invert(1) hue-rotate(180deg) brightness(1.5);
+      filter: invert(1) grayscale(1) brightness(200%);
       mix-blend-mode: screen;
     }
 
-    /* Hide scrollbar for dock */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    /* Reveal animations handled by AOS in app.js */
   </style>
 </head>
 <body class="antialiased selection:bg-white selection:text-black">
 
-  <!-- NO INLINE SCRIPTS OR ONCLICK (CSP REQUIREMENT) -->
-
-  <!-- NAVBAR DOCK (Floating) -->
+  <!-- NAVBAR DOCK -->
   <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl glass-dark rounded-full px-6 py-3 flex items-center justify-between shadow-2xl transition-all duration-300">
     <div class="flex items-center gap-3">
       <img src="img/logo.png" alt="Rafael Mansur Logo" class="h-10 w-10 object-contain logo-dark-mode">
       <span class="font-serif font-semibold text-lg hidden sm:block tracking-wide">RAFAEL MANSUR</span>
     </div>
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-300">
       <a href="#historia" class="hover:text-white transition-colors">História</a>
+      <a href="#horarios" class="hover:text-white transition-colors">Horários</a>
       <a href="#metodologia" class="hover:text-white transition-colors">Metodologia</a>
       <a href="#localizacao" class="hover:text-white transition-colors">Localização</a>
     </div>
@@ -107,17 +102,16 @@
   </nav>
 
   <!-- HERO SECTION -->
+  <!-- Changed background to a high-end unsplash BJJ photo to simulate Instagram until user uploads specific ones -->
   <section class="relative min-h-[90vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
-    <!-- Cinematic Background (Placeholder black/gray gradient since no real background image provided) -->
-    <div class="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-black z-0"></div>
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20 z-0 mix-blend-overlay"></div>
+    <!-- Image Background -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1920&q=80" alt="Jiu Jitsu Tatame" class="w-full h-full object-cover opacity-30 grayscale filter">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-zinc-950/80 to-transparent z-0"></div>
     
-    <!-- Abstract Glow -->
-    <div class="absolute top-1/4 -left-[20%] w-[50vw] h-[50vw] bg-zinc-800 rounded-full blur-[120px] opacity-30 z-0"></div>
-    <div class="absolute bottom-0 -right-[10%] w-[40vw] h-[40vw] bg-white rounded-full blur-[150px] opacity-[0.03] z-0"></div>
-
-    <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center text-center" data-aos="fade-up" data-aos-duration="1000">
-      <img src="img/logo.png" alt="Rafael Mansur Jiu-Jitsu School" class="w-32 md:w-48 mb-8 logo-dark-mode opacity-80">
+    <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center text-center mt-12" data-aos="fade-up" data-aos-duration="1000">
+      <img src="img/logo.png" alt="Rafael Mansur Jiu-Jitsu School" class="w-32 md:w-48 mb-8 logo-dark-mode opacity-90">
       
       <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight mb-6 leading-tight">
         A Arte Suave em <br>
@@ -140,14 +134,13 @@
   <section id="historia" class="py-24 relative z-10 bg-black">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <!-- Visual Column -->
+        <!-- Visual Column: Now using Professor Photo -->
         <div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden glass-light flex items-center justify-center" data-aos="fade-right">
-          <!-- Placeholder for Professor Photo, using subtle gradient/logo for now -->
-          <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 to-zinc-800 opacity-50"></div>
-          <img src="img/logo.png" alt="Emblema" class="w-1/2 opacity-20 logo-dark-mode">
+          <img src="img/professor.png" alt="Professor Rafael Mansur" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
           <div class="absolute bottom-8 left-8 right-8">
-            <div class="glass-dark p-6 rounded-2xl">
-              <p class="font-serif text-2xl mb-1">Rafael Mansur</p>
+            <div class="glass-dark p-6 rounded-2xl border-white/10">
+              <p class="font-serif text-2xl mb-1 text-white">Rafael Mansur</p>
               <p class="text-zinc-400 text-sm tracking-widest uppercase">Faixa Preta • Fundador</p>
             </div>
           </div>
@@ -178,10 +171,21 @@
     </div>
   </section>
 
-  <!-- METHODOLOGY SECTION (GLASSMORPHISM PANEL) -->
-  <section id="metodologia" class="py-24 relative overflow-hidden bg-zinc-950">
+  <!-- SCHEDULE (HORÁRIOS) SECTION -->
+  <section id="horarios" class="py-24 relative overflow-hidden bg-zinc-950 border-y border-white/5">
     <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDIiLz4KPC9zdmc+')] opacity-50"></div>
-    
+    <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
+      <h2 class="text-3xl md:text-5xl font-serif mb-12" data-aos="fade-up">
+        Grade de <span class="italic text-zinc-400">Aulas</span>
+      </h2>
+      <div class="bg-white p-4 md:p-8 rounded-[2rem] shadow-2xl inline-block w-full" data-aos="zoom-in" data-aos-duration="1000">
+        <img src="img/horarios.png" alt="Grade de Aulas" class="w-full h-auto rounded-xl object-contain">
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY SECTION -->
+  <section id="metodologia" class="py-24 relative overflow-hidden bg-black">
     <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
       <img src="img/logo.png" alt="Icon" class="w-20 mx-auto mb-8 logo-dark-mode opacity-60" data-aos="fade-down">
       
@@ -215,14 +219,14 @@
   </section>
 
   <!-- LOCATION / MAPS & CTA -->
-  <section id="localizacao" class="py-24 bg-black relative">
+  <section id="localizacao" class="py-24 bg-zinc-950 relative border-t border-white/5">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-zinc-900/50 rounded-[3rem] p-6 md:p-8 border border-white/5">
         
         <!-- Maps iframe -->
         <div class="w-full h-[400px] md:h-full min-h-[400px] rounded-[2rem] overflow-hidden" data-aos="fade-right">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113098.28312011709!2d-48.591079!3d-27.5699708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527394eb2c632d7%3A0x81bc550b6a04c746!2sFlorian%C3%B3polis%2C%20SC!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.918118055416!2d-48.55160868493181!3d-27.58557378283403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527383bb3e01ce1%3A0x600f7e44a423d242!2sR.%20Germano%20Wendhausen%2C%20259%20-%20Centro%2C%20Florian%C3%B3polis%20-%20SC%2C%2088015-460!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" 
             width="100%" 
             height="100%" 
             style="border:0;" 
@@ -237,27 +241,27 @@
         <div class="flex flex-col justify-center p-4 md:p-8" data-aos="fade-left">
           <h2 class="text-3xl md:text-4xl font-serif mb-6">Venha fazer parte da <span class="italic text-zinc-400">nossa escola.</span></h2>
           <p class="text-zinc-400 mb-8 font-light leading-relaxed">
-            Estamos localizados em Florianópolis, prontos para receber você independentemente do seu nível de experiência. Dê o primeiro passo na arte suave hoje mesmo.
+            Estamos localizados no coração de Florianópolis, prontos para receber você independentemente do seu nível de experiência. Dê o primeiro passo na arte suave hoje mesmo.
           </p>
           
           <div class="space-y-6 mb-10">
             <div class="flex items-center gap-4 text-zinc-300">
-              <div class="w-12 h-12 rounded-full glass-light flex items-center justify-center">
+              <div class="w-12 h-12 rounded-full glass-light flex shrink-0 items-center justify-center">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               </div>
               <div>
-                <p class="font-medium text-white">Florianópolis, SC</p>
-                <p class="text-sm opacity-70">Entre em contato para o endereço completo</p>
+                <p class="font-medium text-white text-base">Rua Germano Wendhausen, 259</p>
+                <p class="text-sm opacity-70">Centro, Florianópolis - SC</p>
               </div>
             </div>
             
             <div class="flex items-center gap-4 text-zinc-300">
-              <div class="w-12 h-12 rounded-full glass-light flex items-center justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div class="w-12 h-12 rounded-full glass-light flex shrink-0 items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               </div>
               <div>
-                <p class="font-medium text-white">Aulas Todos os Dias</p>
-                <p class="text-sm opacity-70">Manhã, Tarde e Noite</p>
+                <p class="font-medium text-white text-base">Rua Bocaiúva, 2045</p>
+                <p class="text-sm opacity-70">Centro, Florianópolis - SC</p>
               </div>
             </div>
           </div>
