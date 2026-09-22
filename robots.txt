@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lp-rafael-mansur.vercel.app/sitemap.xml
+Sitemap: https://rafaelmansurjj.vercel.app/sitemap.xml
