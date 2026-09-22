@@ -30,11 +30,19 @@
 @tailwind utilities;
 
 @layer base {
+  /* As animacoes de entrada (AOS fade-right/fade-left) comecam 100px fora da tela.
+     Sem cortar tambem no <html>, a pagina ganhava ~76px de rolagem lateral.
+     "clip" corta sem criar area de rolagem e nao atrapalha position: fixed/sticky. */
+  html {
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
   body {
     font-family: 'Outfit', sans-serif;
     background-color: #09090b;
     color: #f4f4f5;
     overflow-x: hidden;
+    overflow-x: clip;
   }
   h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
