@@ -28,16 +28,7 @@
             }
           },
           animation: {
-            'blob': 'blob 7s infinite',
             'ping-slow': 'ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite',
-          },
-          keyframes: {
-            blob: {
-              '0%': { transform: 'translate(0px, 0px) scale(1)' },
-              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-              '100%': { transform: 'translate(0px, 0px) scale(1)' },
-            }
           }
         }
       }
@@ -95,8 +86,7 @@
       <span class="font-serif font-semibold text-sm md:text-base hidden sm:block tracking-wide">RAFAEL MANSUR</span>
     </div>
     
-    <!-- Navbar Links (Bigger fonts, 16px, less gap as requested) -->
-    <div class="hidden md:flex items-center gap-4 text-base font-medium text-zinc-300">
+    <div class="hidden md:flex items-center gap-4 lg:gap-6 text-[13px] lg:text-sm font-medium text-zinc-300">
       <a href="#historia" class="hover:text-white transition-colors">História</a>
       <a href="#horarios" class="hover:text-white transition-colors">Horários</a>
       <a href="#metodologia" class="hover:text-white transition-colors">Metodologia</a>
@@ -112,12 +102,10 @@
 
   <!-- HERO SECTION -->
   <section class="relative min-h-[95vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden bg-black">
-    <!-- Subtle Animated CSS Background -->
-    <div class="absolute inset-0 flex items-center justify-center opacity-30">
-      <div class="w-[30rem] h-[30rem] bg-zinc-700 rounded-full mix-blend-screen filter blur-[120px] animate-blob"></div>
-      <div class="w-[30rem] h-[30rem] bg-zinc-900 rounded-full mix-blend-screen filter blur-[120px] animate-blob animation-delay-2000 ml-32 -mt-32"></div>
+    <div class="absolute inset-0 z-0">
+      <img src="img/hero-bg.jpg" alt="Jiu Jitsu Praia Background" class="w-full h-full object-cover opacity-50 filter contrast-125">
     </div>
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDMiLz4KPC9zdmc+')] z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20 z-0"></div>
     
     <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center text-center mt-8" data-aos="fade-up" data-aos-duration="1000">
       
@@ -198,16 +186,16 @@
         </p>
       </div>
 
-      <!-- Legend -->
+      <!-- Legend (Restored to exact perfect styling, with OPEN MAT cleanly below) -->
       <div class="flex flex-col items-center justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="200">
-        <!-- Primeira linha -->
+        <!-- First row -->
         <div class="flex flex-wrap items-center justify-center gap-6">
           <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-white"></span><span class="text-sm font-medium">JJ 1 (Básico)</span></div>
           <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-zinc-400"></span><span class="text-sm font-medium">JJ 2 (Fundamental)</span></div>
           <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-zinc-600"></span><span class="text-sm font-medium">JJ 3 (No-Gi)</span></div>
         </div>
-        <!-- Segunda linha isolada para descer o OPEN MAT um pouco -->
-        <div class="flex items-center justify-center mt-2">
+        <!-- Second row (OPEN MAT) -->
+        <div class="flex items-center justify-center mt-1">
           <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-red-900 border border-red-500"></span><span class="text-sm font-medium">OPEN MAT (JJ 2 e 3 Acima de 1 Grau)</span></div>
         </div>
       </div>
