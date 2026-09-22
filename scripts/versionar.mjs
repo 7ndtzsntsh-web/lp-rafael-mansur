@@ -43,7 +43,9 @@ for (const { pasta, base, ext } of ARQUIVOS) {
     new RegExp(`${pasta}/${base}(?:\\.[0-9a-f]{8})?\\.${ext}`, 'g'),
     `${pasta}/${novo}`
   );
-  console.log(`${pasta}/${apontado} -> ${pasta}/${novo}${antes === html ? '  (não referenciado no HTML)' : ''}`);
+  const mudou = apontado !== novo;
+  console.log(`${pasta}/${novo}${mudou ? `  (antes: ${apontado})` : '  (sem mudanca)'}`);
+  if (!mudou && antes !== html) console.log(`  aviso: ${pasta}/${novo} nao estava referenciado no HTML`);
 }
 
 // Os scripts têm selo de integridade (SRI). O conteúdo não mudou, mas o caminho sim:
