@@ -85,21 +85,24 @@
     </a>
   </div>
 
-  <!-- NAVBAR DOCK (RODAPÉ SUPERIOR CORRIGIDO) -->
+  <!-- NAVBAR DOCK -->
   <nav class="fixed top-6 left-0 right-0 mx-auto z-[90] w-[calc(100%-2rem)] md:w-[90%] max-w-5xl glass-dark rounded-full px-3 py-2 md:py-3 flex items-center justify-between shadow-2xl transition-all duration-300 border border-white/10" data-aos="fade-down" data-aos-duration="1000">
     <div class="flex items-center gap-2 md:gap-3">
-      <!-- Original Logo preserved -->
+      <!-- Logo -->
       <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1 shadow-inner overflow-hidden shrink-0">
         <img src="img/logo.png" alt="Rafael Mansur Logo" class="w-full h-full object-contain">
       </div>
       <span class="font-serif font-semibold text-sm md:text-base hidden sm:block tracking-wide">RAFAEL MANSUR</span>
     </div>
+    
+    <!-- Navbar Links (Bigger fonts, 16px, less gap as requested) -->
     <div class="hidden md:flex items-center gap-4 text-base font-medium text-zinc-300">
       <a href="#historia" class="hover:text-white transition-colors">História</a>
       <a href="#horarios" class="hover:text-white transition-colors">Horários</a>
       <a href="#metodologia" class="hover:text-white transition-colors">Metodologia</a>
       <a href="#localizacao" class="hover:text-white transition-colors">Localização</a>
     </div>
+
     <div>
       <a href="https://api.whatsapp.com/send?phone=5548999051569&text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20aula%20experimental." target="_blank" rel="noopener noreferrer" class="bg-white text-black px-4 py-2.5 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-bold hover:scale-105 transition-transform duration-300 shadow-lg shadow-white/10 whitespace-nowrap">
         Agendar Aula
@@ -109,7 +112,6 @@
 
   <!-- HERO SECTION -->
   <section class="relative min-h-[95vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden bg-black">
-    <!-- Image Background Custom by AI -->
     <!-- Subtle Animated CSS Background -->
     <div class="absolute inset-0 flex items-center justify-center opacity-30">
       <div class="w-[30rem] h-[30rem] bg-zinc-700 rounded-full mix-blend-screen filter blur-[120px] animate-blob"></div>
@@ -182,7 +184,7 @@
     </div>
   </section>
 
-  <!-- SCHEDULE (HORÁRIOS) INTERPRETED SECTION -->
+  <!-- SCHEDULE (HORÁRIOS) SECTION -->
   <section id="horarios" class="py-24 relative overflow-hidden bg-zinc-950 border-y border-white/5">
     <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDIiLz4KPC9zdmc+')] opacity-50"></div>
     <div class="max-w-6xl mx-auto px-6 relative z-10">
@@ -198,12 +200,14 @@
 
       <!-- Legend -->
       <div class="flex flex-col items-center justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="200">
+        <!-- Primeira linha -->
         <div class="flex flex-wrap items-center justify-center gap-6">
           <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-white"></span><span class="text-sm font-medium">JJ 1 (Básico)</span></div>
           <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-zinc-400"></span><span class="text-sm font-medium">JJ 2 (Fundamental)</span></div>
           <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-zinc-600"></span><span class="text-sm font-medium">JJ 3 (No-Gi)</span></div>
         </div>
-        <div class="flex flex-wrap items-center justify-center mt-2">
+        <!-- Segunda linha isolada para descer o OPEN MAT um pouco -->
+        <div class="flex items-center justify-center mt-2">
           <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-red-900 border border-red-500"></span><span class="text-sm font-medium">OPEN MAT (JJ 2 e 3 Acima de 1 Grau)</span></div>
         </div>
       </div>
@@ -418,12 +422,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <script src="js/aos.js"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
 
   <!-- Scripts -->
   <script src="js/aos.js"></script>
