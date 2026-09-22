@@ -9,7 +9,9 @@
     "sri": "node scripts/sri.mjs",
     "security:scan": "node scripts/observatory-local.mjs 4321",
     "dev": "node scripts/dev-server.mjs 4321",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "versionar": "node scripts/versionar.mjs",
+    "build": "npm run build:css && npm run versionar && npm run check"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.19"
