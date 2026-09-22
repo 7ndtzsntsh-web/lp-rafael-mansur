@@ -27,8 +27,15 @@ for (const { pasta, base, ext } of ARQUIVOS) {
   );
   if (!existentes.length) throw new Error(`não achei ${pasta}/${base}.${ext}`);
 
-  // O conteúdo verdadeiro é o do arquivo que o index.html aponta hoje.
-  const apontado = existentes.find((f) => html.includes(`${pasta}/${f}`)) || existentes[0];
+  // Qual arquivo vale?
+  // Se existe o SEM código no nome, ele é a edição mais recente e tem prioridade —
+  // é o que o build:css acabou de escrever, ou o que alguém editou à mão.
+  // (Antes eu dava prioridade ao que o HTML apontava, e uma edição em js/app.js
+  //  era APAGADA em silêncio porque o HTML ainda apontava para a versão antiga.)
+  const semCodigo = `${base}.${ext}`;
+  const apontado = existentes.includes(semCodigo)
+    ? semCodigo
+    : existentes.find((f) => html.includes(`${pasta}/${f}`)) || existentes[0];
   const conteudo = readFileSync(join(pasta, apontado));
   const codigo = createHash('sha256').update(conteudo).digest('hex').slice(0, 8);
   const novo = `${base}.${codigo}.${ext}`;
